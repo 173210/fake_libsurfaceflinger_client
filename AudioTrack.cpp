@@ -37,10 +37,10 @@ AudioTrack::AudioTrack(
       mIsTimed(false),
       mPreviousPriority(ANDROID_PRIORITY_NORMAL), mPreviousSchedulingGroup(SP_DEFAULT)
 {
-    mStatus = set((audio_stream_type_t)streamType, sampleRate, (audio_format_t)format,
+    AudioTrack((audio_stream_type_t)streamType, sampleRate, (audio_format_t)format,
             (audio_channel_mask_t) channelMask,
             frameCount, (audio_output_flags_t)flags, cbf, user, notificationFrames,
-            0 /*sharedBuffer*/, false /*threadCanCallJava*/, sessionId);
+            sessionId, TRANSFER_DEFAULT, NULL, -1);
 }
 
 void AudioTrack::mute(bool e)

@@ -25,7 +25,7 @@ status_t Surface::writeToParcel(
         const sp<Surface>& surface, Parcel* parcel) {
     sp<IGraphicBufferProducer> bp;
     if (surface != NULL) {
-        bp = surface->mGraphicBufferProducer;
+        bp = surface->getIGraphicBufferProducer();
     }
     return parcel->writeStrongBinder(bp->asBinder());
 }
